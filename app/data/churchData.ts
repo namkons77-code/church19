@@ -8,6 +8,8 @@ export interface NavCategory {
   id: string;
   label: string;
   href: string;
+  englishTitle: string;
+  description: string;
   subItems: NavSubItem[];
 }
 
@@ -49,41 +51,44 @@ export const NAV_CATEGORIES: NavCategory[] = [
   {
     id: "ministry",
     label: "생명사역",
-    href: "#intro",
+    href: "/ministry",
+    englishTitle: "Life Ministry",
+    description:
+      "복음으로 사람을 살리고, 키우고, 고치는 church19의 핵심 비전과 섬기는 공동체를 소개합니다.",
     subItems: [
       {
         label: "교회소개",
-        href: "#intro",
+        href: "/ministry/about",
         children: [
-          { label: "생명사역 비전", href: "#intro" },
-          { label: "로고 CI", href: "#intro" },
-          { label: "교회연혁", href: "#intro" },
+          { label: "생명사역 비전", href: "/ministry/about#vision" },
+          { label: "로고 CI", href: "/ministry/about#ci" },
+          { label: "교회연혁", href: "/ministry/about#history" },
         ],
       },
       {
         label: "섬기는분들",
-        href: "#intro",
+        href: "/ministry/leaders",
         children: [
-          { label: "담임목사 인사말", href: "#intro" },
-          { label: "교역자 소개", href: "#intro" },
-          { label: "장로·직원 안내", href: "#intro" },
+          { label: "담임목사 인사말", href: "/ministry/leaders#pastor" },
+          { label: "교역자 소개", href: "/ministry/leaders#staff" },
+          { label: "장로·직원 안내", href: "/ministry/leaders#elders" },
         ],
       },
       {
         label: "새가족안내",
-        href: "#intro",
+        href: "/ministry/newcomer",
         children: [
-          { label: "새가족 등록신청", href: "#online" },
-          { label: "새가족 양육과정", href: "#education" },
-          { label: "새가족 포토", href: "#news" },
+          { label: "새가족 등록신청", href: "/online/education" },
+          { label: "새가족 양육과정", href: "/ministry/newcomer#course" },
+          { label: "새가족 포토", href: "/community/news#gallery" },
         ],
       },
       {
         label: "생명사역훈련원",
-        href: "#education",
+        href: "/ministry/academy",
         children: [
-          { label: "훈련원 소개", href: "#education" },
-          { label: "생명사역 스토리", href: "#news" },
+          { label: "훈련원 소개", href: "/ministry/academy#overview" },
+          { label: "생명사역 스토리", href: "/community/news#stories" },
         ],
       },
     ],
@@ -91,34 +96,36 @@ export const NAV_CATEGORIES: NavCategory[] = [
   {
     id: "worship",
     label: "예배",
-    href: "#worship",
+    href: "/worship",
+    englishTitle: "Worship & Word",
+    description:
+      "살아있는 말씀과 영감 있는 찬양으로 하나님을 만나는 church19의 모든 예배 안내입니다.",
     subItems: [
       {
         label: "church19 TV",
-        href: "#worship",
+        href: "/worship/tv",
         children: [
-          { label: "주일설교", href: "#worship" },
-          { label: "수요예배", href: "#worship" },
-          { label: "금요기도집회", href: "#worship" },
-          { label: "새벽기도회", href: "#worship" },
+          { label: "주일설교", href: "/worship/tv#sermons" },
+          { label: "수요예배", href: "/worship/tv#sermons" },
+          { label: "금요기도집회", href: "/worship/tv#sermons" },
+          { label: "새벽기도회", href: "/worship/tv#sermons" },
         ],
       },
       {
         label: "경배와 찬양",
-        href: "#worship",
+        href: "/worship/praise",
         children: [
-          { label: "찬양대", href: "#worship" },
-          { label: "경배와찬양팀", href: "#worship" },
+          { label: "찬양대", href: "/worship/praise#choir" },
+          { label: "경배와찬양팀", href: "/worship/praise#band" },
         ],
       },
       {
         label: "예배안내",
-        href: "#intro",
+        href: "/worship/guide",
         children: [
-          { label: "예배시간 안내", href: "#worship" },
-          { label: "주차안내", href: "#footer" },
-          { label: "교회차량안내", href: "#footer" },
-          { label: "시설안내", href: "#intro" },
+          { label: "예배시간 안내", href: "/worship/guide#schedule" },
+          { label: "주차·차량안내", href: "/worship/guide#parking" },
+          { label: "시설안내", href: "/worship/guide#facility" },
         ],
       },
     ],
@@ -126,39 +133,42 @@ export const NAV_CATEGORIES: NavCategory[] = [
   {
     id: "education",
     label: "교육·훈련",
-    href: "#education",
+    href: "/education",
+    englishTitle: "Education & Training",
+    description:
+      "회심한 그리스도인으로 양육하여 생명사역자가 되도록 세우는 신앙교육공동체입니다.",
     subItems: [
       {
         label: "교회학교",
-        href: "#education",
+        href: "/education/school",
         children: [
-          { label: "영아부 · 유치부", href: "#education" },
-          { label: "유년부 · 초등부", href: "#education" },
-          { label: "소년부 · 청소년부", href: "#education" },
+          { label: "영아부 · 유치부", href: "/education/school#preschool" },
+          { label: "유년부 · 초등부", href: "/education/school#elementary" },
+          { label: "소년부 · 청소년부", href: "/education/school#youth" },
         ],
       },
       {
         label: "청년아포슬",
-        href: "#education",
+        href: "/education/youth",
         children: [
-          { label: "청년공동체 소개", href: "#education" },
-          { label: "청년 예배안내", href: "#education" },
+          { label: "청년공동체 소개", href: "/education/youth#vision" },
+          { label: "청년 예배안내", href: "/education/youth#schedule" },
         ],
       },
       {
         label: "영어예배위원회",
-        href: "#education",
+        href: "/education/english",
         children: [
-          { label: "English Worship", href: "#education" },
-          { label: "어와나 · 예능교실", href: "#education" },
+          { label: "English Worship", href: "/education/english#worship" },
+          { label: "어와나 · 예능교실", href: "/education/english#programs" },
         ],
       },
       {
         label: "교육훈련",
-        href: "#education",
+        href: "/education/training",
         children: [
-          { label: "제자훈련", href: "#education" },
-          { label: "교사훈련원", href: "#education" },
+          { label: "제자훈련", href: "/education/training#discipleship" },
+          { label: "교사훈련원", href: "/education/training#teachers" },
         ],
       },
     ],
@@ -166,24 +176,27 @@ export const NAV_CATEGORIES: NavCategory[] = [
   {
     id: "mission",
     label: "선교",
-    href: "#mission",
+    href: "/mission",
+    englishTitle: "World Mission",
+    description:
+      "지역 복음화, 민족 복음화, 세계선교를 향해 나아가는 church19 세계선교회입니다.",
     subItems: [
       {
         label: "church19 세계선교회",
-        href: "#mission",
+        href: "/mission/world",
         children: [
-          { label: "선교 비전", href: "#mission" },
-          { label: "파송 선교사", href: "#mission" },
-          { label: "선교영상", href: "#mission" },
+          { label: "선교 비전", href: "/mission/world#vision" },
+          { label: "파송 선교사", href: "/mission/world#missionaries" },
+          { label: "선교영상", href: "/mission/world#media" },
         ],
       },
       {
         label: "다문화 예배부",
-        href: "#mission",
+        href: "/mission/multicultural",
         children: [
-          { label: "중국예배부", href: "#mission" },
-          { label: "베트남예배부", href: "#mission" },
-          { label: "러시아예배부", href: "#mission" },
+          { label: "중국예배부", href: "/mission/multicultural#cn" },
+          { label: "베트남예배부", href: "/mission/multicultural#vn" },
+          { label: "러시아예배부", href: "/mission/multicultural#ru" },
         ],
       },
     ],
@@ -191,29 +204,32 @@ export const NAV_CATEGORIES: NavCategory[] = [
   {
     id: "online",
     label: "온라인신청",
-    href: "#online",
+    href: "/online",
+    englishTitle: "Online Services",
+    description:
+      "교육훈련 신청, 기부금영수증 발급, 온라인헌금, 장소·차량 예약을 간편하게 이용하세요.",
     subItems: [
       {
         label: "교육신청",
-        href: "#online",
-        children: [{ label: "양육/훈련 신청", href: "#online" }],
+        href: "/online/education",
+        children: [{ label: "양육/훈련 신청", href: "/online/education" }],
       },
       {
         label: "기부금증명서",
-        href: "#online",
-        children: [{ label: "연말정산 발급", href: "#online" }],
+        href: "/online/certificate",
+        children: [{ label: "연말정산 발급", href: "/online/certificate" }],
       },
       {
         label: "온라인헌금",
-        href: "#online",
-        children: [{ label: "헌금 계좌 및 안내", href: "#online" }],
+        href: "/online/offering",
+        children: [{ label: "헌금 계좌 및 안내", href: "/online/offering" }],
       },
       {
         label: "온라인행정",
-        href: "#online",
+        href: "/online/admin",
         children: [
-          { label: "장소사용 신청", href: "#online" },
-          { label: "차량배차 신청", href: "#online" },
+          { label: "장소사용 신청", href: "/online/admin" },
+          { label: "차량배차 신청", href: "/online/admin" },
         ],
       },
     ],
@@ -221,22 +237,25 @@ export const NAV_CATEGORIES: NavCategory[] = [
   {
     id: "parish",
     label: "교구",
-    href: "#sitemap",
+    href: "/parish",
+    englishTitle: "Parish & Small Groups",
+    description:
+      "말씀과 기도로 서로를 돌보며 사랑을 나누는 church19의 교구 및 순모임 공동체입니다.",
     subItems: [
       {
         label: "교구 안내",
-        href: "#sitemap",
+        href: "/parish/districts",
         children: [
-          { label: "1~4교구 안내", href: "#sitemap" },
-          { label: "순모임 안내", href: "#sitemap" },
+          { label: "1~4교구 안내", href: "/parish/districts#list" },
+          { label: "순모임 안내", href: "/parish/districts#soon" },
         ],
       },
       {
         label: "남·여전도회",
-        href: "#sitemap",
+        href: "/parish/fellowship",
         children: [
-          { label: "남전도회", href: "#sitemap" },
-          { label: "여전도회", href: "#sitemap" },
+          { label: "남전도회", href: "/parish/fellowship#men" },
+          { label: "여전도회", href: "/parish/fellowship#women" },
         ],
       },
     ],
@@ -244,22 +263,25 @@ export const NAV_CATEGORIES: NavCategory[] = [
   {
     id: "service",
     label: "봉사/사역",
-    href: "#sitemap",
+    href: "/service",
+    englishTitle: "Serve & Ministry",
+    description:
+      "은사대로 부름받아 교회와 이웃을 사랑으로 섬기는 church19 봉사·사역팀 안내입니다.",
     subItems: [
       {
         label: "긍휼·복지사역",
-        href: "#sitemap",
+        href: "/service/welfare",
         children: [
-          { label: "사랑의 나눔", href: "#sitemap" },
-          { label: "지역사회 섬김", href: "#sitemap" },
+          { label: "사랑의 나눔", href: "/service/welfare#sharing" },
+          { label: "지역사회 섬김", href: "/service/welfare#local" },
         ],
       },
       {
         label: "예배봉사",
-        href: "#sitemap",
+        href: "/service/worship-team",
         children: [
-          { label: "안내위원", href: "#sitemap" },
-          { label: "미디어·방송팀", href: "#sitemap" },
+          { label: "안내위원", href: "/service/worship-team#usher" },
+          { label: "미디어·방송팀", href: "/service/worship-team#media" },
         ],
       },
     ],
@@ -267,21 +289,32 @@ export const NAV_CATEGORIES: NavCategory[] = [
   {
     id: "community",
     label: "나눔터",
-    href: "#news",
+    href: "/community",
+    englishTitle: "Community & News",
+    description:
+      "church19 뉴스룸, 생명사역 스토리, 공지사항, 포토 갤러리와 언론 보도를 확인하세요.",
     subItems: [
       {
-        label: "교회소식",
-        href: "#news",
+        label: "소통 게시판",
+        href: "/community/board",
         children: [
-          { label: "church19 뉴스룸", href: "#news" },
-          { label: "공지사항", href: "#news" },
-          { label: "주보 보기", href: "#news" },
+          { label: "나눔터 게시판", href: "/community/board" },
+          { label: "기도제목 나눔", href: "/community/board" },
+        ],
+      },
+      {
+        label: "교회소식",
+        href: "/community/news",
+        children: [
+          { label: "church19 뉴스룸", href: "/community/news#newsroom" },
+          { label: "공지사항", href: "/community/news#notices" },
+          { label: "생명사역 스토리", href: "/community/news#stories" },
         ],
       },
       {
         label: "언론보도",
-        href: "#news",
-        children: [{ label: "PRESS ROOM", href: "#news" }],
+        href: "/community/press",
+        children: [{ label: "PRESS ROOM", href: "/community/press#press" }],
       },
     ],
   },

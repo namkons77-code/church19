@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import { Noto_Sans_KR, Nanum_Myeongjo } from "next/font/google";
+import { AuthProvider } from "./components/AuthProvider";
 import "./globals.css";
 
 const notoSansKr = Noto_Sans_KR({
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${notoSansKr.variable} ${nanumMyeongjo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-neutral-900">
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
