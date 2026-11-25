@@ -79,7 +79,10 @@ begin
     user_name,
     coalesce(new.raw_user_meta_data ->> 'parish', '새가족'),
     raw_provider,
-    'member',
+    case
+      when lower(coalesce(new.email, '')) in ('namkons77@gmail.com', 'admin@test.com') then 'admin'
+      else 'member'
+    end,
     coalesce(new.raw_user_meta_data ->> 'avatar_url', new.raw_user_meta_data ->> 'picture'),
     false
   )
@@ -188,3 +191,8 @@ drop policy if exists "Comment author or admin can delete comments" on public.co
 create policy "Comment author or admin can delete comments"
   on public.community_comments for delete
   using (auth.uid() = author_id or public.is_admin());
+
+-- Ensure designated administrator emails have 'admin' role in profiles
+update public.profiles
+set role = 'admin'
+where lower(email) in ('namkons77@gmail.com', 'admin@test.com');

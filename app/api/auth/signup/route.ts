@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getSessionCookieOptions, signSessionToken } from "@/app/lib/auth";
+import { getSessionCookieOptions, isAdminEmail, signSessionToken } from "@/app/lib/auth";
 import { getOrigin } from "@/app/lib/oauthHelpers";
 import { isSupabaseConfigured, mapSupabaseUser } from "@/app/lib/supabase/config";
 import { createServerSupabaseClient } from "@/app/lib/supabase/server";
@@ -82,6 +82,8 @@ export async function POST(req: NextRequest) {
         );
       }
 
+      const assignedRole = isAdminEmail(email) ? "admin" : "member";
+
       await supabase.from("profiles").upsert(
         {
           id: data.user.id,
@@ -89,12 +91,20 @@ export async function POST(req: NextRequest) {
           name,
           parish,
           provider: "email",
+          role: assignedRole,
         },
         { onConflict: "id" }
       );
 
       return NextResponse.json(
-        { user: mapSupabaseUser(data.user, { name, parish, provider: "email" }) },
+        {
+          user: mapSupabaseUser(data.user, {
+            name,
+            parish,
+            provider: "email",
+            role: assignedRole,
+          }),
+        },
         { status: 201 }
       );
     }

@@ -1,9 +1,9 @@
 import fs from "node:fs/promises";
-import path from "node:path";
 import { NextResponse } from "next/server";
 import type { SessionUser } from "@/app/lib/auth";
 import { listCommunityPosts } from "@/app/lib/communityStore";
 import { getCurrentSessionUser, getEffectiveRole } from "@/app/lib/currentUser";
+import { getDataFilePath } from "@/app/lib/dataDir";
 import { isSupabaseConfigured } from "@/app/lib/supabase/config";
 import { createServerSupabaseClient } from "@/app/lib/supabase/server";
 import { listAllLocalUsers } from "@/app/lib/userStore";
@@ -72,10 +72,7 @@ export async function GET() {
   } else {
     users = await listAllLocalUsers();
     try {
-      const raw = await fs.readFile(
-        path.join(process.cwd(), ".data", "applications.json"),
-        "utf8"
-      );
+      const raw = await fs.readFile(getDataFilePath("applications.json"), "utf8");
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed)) applications = parsed;
     } catch {

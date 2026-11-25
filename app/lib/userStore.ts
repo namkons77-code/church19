@@ -1,6 +1,5 @@
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
-import path from "node:path";
 import {
   AuthenticatedRole,
   AuthProviderType,
@@ -8,6 +7,7 @@ import {
   isAdminEmail,
   SessionUser,
 } from "./auth";
+import { getDataDir, getDataFilePath } from "./dataDir";
 
 export interface StoredUser {
   id: string;
@@ -28,8 +28,8 @@ export interface StoredUser {
   createdAt: string;
 }
 
-const DATA_DIR = path.join(process.cwd(), ".data");
-const USERS_FILE = path.join(DATA_DIR, "users.json");
+const DATA_DIR = getDataDir();
+const USERS_FILE = getDataFilePath("users.json");
 
 function createSeedUsers(): StoredUser[] {
   return [

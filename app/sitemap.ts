@@ -2,7 +2,12 @@ import type { MetadataRoute } from "next";
 import { SUBMENU_PAGES } from "./data/submenuData";
 
 const BASE_URL = (
-  process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+  process.env.NEXT_PUBLIC_BASE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000")
 ).replace(/\/$/, "");
 
 const LAST_MODIFIED = new Date("2026-11-25T00:00:00.000Z");

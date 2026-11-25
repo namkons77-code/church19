@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { NextRequest, NextResponse } from "next/server";
 import { getSessionUser } from "@/app/lib/auth";
+import { getDataFilePath } from "@/app/lib/dataDir";
 import { isSupabaseConfigured } from "@/app/lib/supabase/config";
 import { createServerSupabaseClient } from "@/app/lib/supabase/server";
 
@@ -18,7 +19,7 @@ interface ApplicationRecord {
   created_at: string;
 }
 
-const LOCAL_FILE = path.join(process.cwd(), ".data", "applications.json");
+const LOCAL_FILE = getDataFilePath("applications.json");
 
 async function readLocalApplications(): Promise<ApplicationRecord[]> {
   try {

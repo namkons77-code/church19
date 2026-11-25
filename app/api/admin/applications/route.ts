@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
-import path from "node:path";
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentSessionUser, getEffectiveRole } from "@/app/lib/currentUser";
+import { getDataFilePath } from "@/app/lib/dataDir";
 import { isSupabaseConfigured } from "@/app/lib/supabase/config";
 import { createServerSupabaseClient } from "@/app/lib/supabase/server";
 
@@ -55,7 +55,7 @@ export async function PATCH(req: NextRequest) {
       return NextResponse.json({ application: data });
     }
 
-    const file = path.join(process.cwd(), ".data", "applications.json");
+    const file = getDataFilePath("applications.json");
     const raw = await fs.readFile(file, "utf8");
     const list = JSON.parse(raw) as Array<{ id: string; status: string }>;
     const idx = list.findIndex((item) => item.id === id);

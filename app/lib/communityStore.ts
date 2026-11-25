@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
-import path from "node:path";
 import type { SessionUser } from "./auth";
+import { getDataDir, getDataFilePath } from "./dataDir";
 import { isSupabaseConfigured } from "./supabase/config";
 import { createServerSupabaseClient } from "./supabase/server";
 
@@ -36,8 +36,8 @@ interface LocalCommunityDb {
   comments: CommunityComment[];
 }
 
-const DATA_DIR = path.join(process.cwd(), ".data");
-const COMMUNITY_FILE = path.join(DATA_DIR, "community.json");
+const DATA_DIR = getDataDir();
+const COMMUNITY_FILE = getDataFilePath("community.json");
 
 function createSeedDb(): LocalCommunityDb {
   const now = new Date();
